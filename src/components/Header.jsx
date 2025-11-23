@@ -45,9 +45,9 @@ export default function Header() {
 
 
   return (
-    <div className='relative bg-[#fdf9f2] z-[90]  h-[90px] lg:h-[66px]'>
-      <div className='fixed z-[90] bg-[#fdf9f2] lg:flex hidden items-center justify-between px-20 shadow-xl py-5 gap-10 w-full '>
-        <img src={"/logo.png"} height={"50px"} width={"50px"} alt="" />
+    <div className='relative bg-white z-[90]  h-[90px] lg:h-[66px]'>
+      <div className='fixed z-[90] bg-white lg:flex hidden items-center justify-between px-20 shadow-xl py-5 gap-10 w-full '>
+        <img src={"/logo.png"} className='rounded-full' height={"50px"} width={"50px"} alt="" />
         <div className="flex  items-center list-none   gap-7 ">
           <li className='cursor-pointer'><Link href='/'>Home</Link></li>
           <li className='cursor-pointer'><Link href='/about/tons-trust'>About Us</Link></li>
@@ -60,7 +60,7 @@ export default function Header() {
       </div>
       <div className='shadow-md lg:hidden  fixed  w-full top-0 bg-white flex justify-between px-4 items-center  py-3'>
         <div className="logo">
-          <img src={"/"} height={"80px"} width={"80px"} alt="" />
+          <img src={"/logo.png"} height={"80px"} width={"80px"} alt="" />
         </div>
         <div className="btns">
           <Hamburger showNav={showNav} setShowNav={setShowNav}  ></Hamburger>

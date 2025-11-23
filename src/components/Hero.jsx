@@ -1,117 +1,55 @@
-import React from 'react';
+import React from "react";
 
-export default function Hero() {
+export default function CafeHero({ imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHARfb6rqQvx1iqDk0Z9ZehG0S_6_vStVHOA&s", onPlay }) {
   return (
-    <div id=''>
-      <section className="relative bg-[#fff7ed]">
-        <div className="relative pt-16 pb-12 flex content-center items-center justify-center min-h-screen-75">
-          
-          {/* BACKGROUND IMAGE */}
-          <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
-            style={{
-              backgroundImage: `url("https://images.unsplash.com/photo-1527168027773-7d45f7b6a7a8")`
-            }}
-          >
-            <span id="blackOverlay" className="w-full h-full absolute opacity-70 bg-black"></span>
-          </div>
-
-          <div className="container relative mx-auto">
-            <div className="items-center flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-3 ml-auto mr-auto text-center">
-                <div className="">
-                  <h1 className="text-white font-semibold text-5xl">
-                    Welcome to Late Night Café
-                  </h1>
-
-                  <p className="mt-4 text-lg" style={{ color: "#f1f1f1" }}>
-                    Serving premium brews, cozy ambience, and delicious midnight bites — 
-                    open till 3 AM for your late-night cravings.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CURVE SVG */}
-          <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
-            style={{ transform: "translateZ(0px)" }}
-          >
-            <svg
-              className="absolute bottom-0 overflow-hidden"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0"
-            >
-              <polygon
-                className="text-blueGray-200 fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
-            </svg>
-          </div>
+    <div className="relative overflow-hidden">
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-2xl text-center mx-auto">
+          <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl ">
+            Designed for you to get more <span className="text-blue-600">simple</span>
+          </h1>
+          <p className="mt-3 text-lg text-gray-800 dark:text-neutral-400">Build your business here. Take it anywhere.</p>
         </div>
 
-        {/* 3 CARDS SECTION */}
-        <section className="pb-10 bg-blueGray-200 -mt-10">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
-              
-              {/* VISION -> OUR COFFEE */}
-              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                      <i className="fas fa-mug-hot"></i>
-                    </div>
-                    <h6 className="text-xl font-semibold">Our Coffee</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
-                      Freshly brewed artisanal coffee crafted from premium beans,
-                      perfect for your late-night conversations and productivity.
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div className="mt-10 relative max-w-5xl mx-auto">
+          {/* Background image block (keeps aspect & cover) */}
+          <div
+            className="w-full object-cover h-96 sm:h-120 bg-no-repeat bg-center bg-cover rounded-xl"
+            style={{ backgroundImage: `url('${imageUrl}')` }}
+            role="img"
+            aria-label="Cafe ambience"
+          />
 
-              {/* MISSION -> OUR MENU */}
-              <div className="w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-blue-400 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
-                      <i className="fas fa-utensils"></i>
-                    </div>
-                    <h6 className="text-xl font-semibold">Our Menu</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
-                      From classic espresso to signature cold brews, desserts, 
-                      sandwiches & midnight snacks — all freshly made for you.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* APPROACH -> OUR AMBIENCE */}
-              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
-                      <i className="fas fa-moon"></i>
-                    </div>
-                    <h6 className="text-xl font-semibold">Our Ambience</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
-                      Cozy, dim-lit, and peaceful — a perfect spot for work, 
-                      conversations, or simply enjoying a quiet caffeine break.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+          {/* Centered play button overlay */}
+          <div className="absolute inset-0 w-full h-full">
+            <div className="flex flex-col justify-center items-center w-full h-full">
+              {/* <a
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onPlay) onPlay();
+                }}
+                aria-label="Play overview video"
+              >
+                <svg className="shrink-0 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <span>Play the overview</span>
+              </a> */}
             </div>
           </div>
-        </section>
-      </section>
+
+          {/* Decorative shapes */}
+          <div className="absolute bottom-12 -left-20 -z-1 w-48 h-48 bg-linear-to-b from-orange-500 to-white p-px rounded-lg dark:to-neutral-900">
+            <div className="bg-white w-48 h-48 rounded-lg dark:bg-neutral-900" />
+          </div>
+
+          <div className="absolute -top-12 -right-20 -z-1 w-48 h-48 bg-linear-to-t from-blue-600 to-cyan-400 p-px rounded-full">
+            <div className="bg-white w-48 h-48 rounded-full dark:bg-neutral-900" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
